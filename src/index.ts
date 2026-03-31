@@ -10,3 +10,7 @@ export function average(values: number[]): number {
 export { readExcel } from './readExcel';
 export { mapColumns } from './mapColumns';
 export { computeRows } from './computeRows';
+
+export function createFormulaCompute(formula: string, columnA: string, columnB: string): (a: number, b: number) => number {
+  throw new Error('Not implemented');
+}
