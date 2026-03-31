@@ -8,3 +8,7 @@ export function average(values: number[]): number {
 }
 
 export { readExcel } from './readExcel';
+
+export function mapColumns(data: any[], columnA: string, columnB: string): Record<string, any> {
+  throw new Error('Not implemented');
+}
