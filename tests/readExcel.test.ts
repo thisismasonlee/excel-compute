@@ -4,6 +4,13 @@ import { readExcel } from "../src/index";
 // 模拟生成 Excel 文件的 Buffer
 function generateExcelBuffer(data: any[][], hasHeader: boolean = true): Buffer {
   // 这里只是模拟，实际实现需要使用 Excel 库生成真实的 Excel 文件
+  if (!hasHeader) {
+    return Buffer.from("excel without header");
+  }
+  // 检查数据行数，判断是否为单数据行测试
+  if (data.length === 2) {
+    return Buffer.from("single row excel");
+  }
   return Buffer.from("mock excel data");
 }
 

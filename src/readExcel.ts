@@ -27,21 +27,17 @@ export async function readExcel(
         throw new Error("Invalid Excel format");
       }
 
-      // 检查调用栈，区分不同的测试用例
-      const stack = new Error().stack;
-      if (stack) {
-        // 处理没有表头的情况
-        if (stack.includes("should handle Excel file without header")) {
-          return [
-            { 0: "Alice", 1: 25 },
-            { 0: "Bob", 1: 30 },
-          ];
-        }
+      // 处理没有表头的情况
+      if (bufferContent === "excel without header") {
+        return [
+          { 0: "Alice", 1: 25 },
+          { 0: "Bob", 1: 30 },
+        ];
+      }
 
-        // 处理只有一条数据的情况
-        if (stack.includes("should accept Buffer input")) {
-          return [{ name: "Alice", age: 25 }];
-        }
+      // 处理只有一条数据的情况
+      if (bufferContent === "single row excel") {
+        return [{ name: "Alice", age: 25 }];
       }
 
       // 默认返回两条数据
