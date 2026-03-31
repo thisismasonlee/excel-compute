@@ -7,6 +7,4 @@ export function average(values: number[]): number {
   return sum(values) / values.length;
 }
 
-export function readExcel(file: Buffer | string): Promise<Record<string, any>[]> {
-  throw new Error('Not implemented');
-}
+export { readExcel } from './readExcel';
